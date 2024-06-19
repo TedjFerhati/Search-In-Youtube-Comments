@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Search In YouTube Comments Extension",
+  "version": "1.0",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "https://www.googleapis.com/*"
+  ],
+  "description": "Load and search YouTube comments for a video.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
